@@ -13,15 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
-      - name: Check PR merge
-        id: check
+      - name: Get Labels
+        id: labels
         run: |
-          PR_BODY="${{ github.event.pull_request.body }}"
-          if [[ -n "$PR_BODY" ]]; then
-            echo "PR body contains text."
-            echo "PR Body: $PR_BODY"
-            echo "Database-Name: $Database-Name"
-            echo "Application-Name: $Application-Name"
-          else
-            echo "PR body is empty."
-          fi
+          LABELS_JSON=$(jq --raw-output '.labels[] | .name' <<< '${{ toJson(github.event.pull_request) }}')
+          echo "::set-output name=labels::$LABELS_JSON"
+      - name: Check Labels
+        run: |
+          LABELS="${{ steps.labels.outputs.labels }}"
+          echo "Labels: $LABELS"
