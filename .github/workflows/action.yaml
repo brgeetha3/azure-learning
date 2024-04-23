@@ -1,1 +1,23 @@
+name: Custom Workflow
 
+on: 
+  pull_request:
+    types: [closed]
+    
+jobs:
+  build:
+    name: excute-test-cases
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 
+
+    - name: Run a one-line script
+      run: echo "The PR was merged. Do something here."
+
+    - name: Run with custom input
+      id: custom
+      uses: ./
+      with:
+        custom-input: ${{ github.event.pull_request.body }}
