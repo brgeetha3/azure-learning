@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
-      - name: Get Labels
-        id: labels
+      - name: Check PR body
         run: |
-          LABELS_JSON=$(jq --raw-output '.labels[] | .name' <<< '${{ toJson(github.event.pull_request) }}')
-          echo "::set-output name=labels::$LABELS_JSON"
-      - name: Check Labels
-        run: |
-          LABELS="${{ steps.labels.outputs.labels }}"
-          echo "Labels: $LABELS"
+          PR_BODY="${{ github.event.pull_request.body }}"
+          if [[ -z "$PR_BODY" ]]; then
+            echo "PR body is empty. Failing the workflow."
+            exit 1
+          else
+            echo "PR body is not empty. Proceeding with the workflow."
+            echo "Input Text is - $PR_BODY"
+          fi	  
