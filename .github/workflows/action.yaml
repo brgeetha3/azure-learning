@@ -13,10 +13,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 
 
-    - name: Check PR body
-      run: |
-        PR_BODY="${{ github.event.pull_request.body }}"
-        if [[ -z "$PR_BODY" ]]; then
-          echo "PR body is not empty. Proceeding with the workflow."
-          echo "Input Text is - $PR_BODY"
-        fi	  
+    - name: Extract PR body
+      id: extract_body
+      run: echo "::set-output name=body::${{ github.event.pull_request.body }}"
+      
+    - name: Display PR body
+      run: echo "PR Body: ${{ steps.extract_body.outputs.body }}"
