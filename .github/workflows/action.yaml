@@ -11,13 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 
+      uses: actions/checkout@v2
 
     - name: Run a one-line script
       run: echo "The PR was merged. Do something here."
 
-    - name: Run with custom input
-      id: custom
-      uses: ./
-      with:
-        custom-input: ${{ github.event.pull_request.body }}
+    - name: Display custom input
+      run: echo "Custom input is ${{ github.event.pull_request.body }}"
