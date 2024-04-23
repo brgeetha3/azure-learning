@@ -11,11 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 
+      uses: actions/checkout@v2 
 
-    - name: Extract PR body
-      id: extract_body
-      run: echo "::set-output name=body::${{ github.event.pull_request.body }}"
-      
-    - name: Display PR body
-      run: echo "PR Body: ${{ steps.extract_body.outputs.body }}"
+    - name: Check PR body
+      id: check
+      run: |
+          PR_BODY="${{ github.event.pull_request.body }}"
+          if [[ -n "$PR_BODY" ]]; then
+            echo "PR body contains text."
+            echo "PR Body: $PR_BODY"
+        
