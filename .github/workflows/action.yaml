@@ -4,20 +4,24 @@ on:
   pull_request:
     types: [closed]
     
-jobs:
-  build:
-    name: excute-test-cases
-    if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2 
+env:
+  IBE_PROPERTY_1: value1
+  IBE_PROPERTY_2: value2
 
-    - name: Check PR body
-      id: check
-      run: |
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Check PR merge
+        id: check
+        run: |
           PR_BODY="${{ github.event.pull_request.body }}"
           if [[ -n "$PR_BODY" ]]; then
             echo "PR body contains text."
             echo "PR Body: $PR_BODY"
-        
+            echo "IBE_PROPERTY_1: $IBE_PROPERTY_1"
+            echo "IBE_PROPERTY_2: $IBE_PROPERTY_2"
+          else
+            echo "PR body is empty."
+          fi
