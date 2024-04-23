@@ -21,4 +21,5 @@ jobs:
           exit 1
         else
           echo "PR body is not empty. Proceeding with the workflow."
+          echo "PR body: $PR_BODY"
         fi
