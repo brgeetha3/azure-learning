@@ -16,9 +16,9 @@ jobs:
     - name: Check PR body
       run: |
         PR_BODY="${{ github.event.pull_request.body }}"
-        if [[ "$PR_BODY" == "true" ]]; then
-          echo "PR body is 'true'. Proceeding with the workflow."
-        else
-          echo "PR body is not 'true'. Failing the workflow."
+        if [[ -z "$PR_BODY" ]]; then
+          echo "PR body is empty. Failing the workflow."
           exit 1
+        else
+          echo "PR body is not empty. Proceeding with the workflow."
         fi
