@@ -14,12 +14,18 @@ jobs:
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 
 
     - name: Check PR body
+      id: check
       run: |
-        PR_BODY="${{ github.event.pull_request.body }}"
-        if [[ -z "$PR_BODY" ]]; then
-          echo "PR body is empty. Failing the workflow."
-          exit 1
-        else
-          echo "PR body is not empty. Proceeding with the workflow."
-          echo "Input Text is - $PR_BODY"
-        fi
+          body=$(gh pr view https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }} --json body -q '.body')
+          if [[ -n "$body" ]]; then
+            echo "The PR body is not empty."
+            echo "::set-output name=trigger::true"
+          else
+            echo "The PR body is empty."
+            echo "::set-output name=trigger::false"
+          fi
+      env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Conditional step
+      if: steps.check.outputs.trigger == 'true'
+      run: echo "Running the next steps..."
