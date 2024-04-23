@@ -5,8 +5,8 @@ on:
     types: [closed]
     
 env:
-  IBE_PROPERTY_1: value1
-  IBE_PROPERTY_2: value2
+  Database-Name: value1
+  Application-Name: value2
 
 jobs:
   check:
@@ -20,8 +20,8 @@ jobs:
           if [[ -n "$PR_BODY" ]]; then
             echo "PR body contains text."
             echo "PR Body: $PR_BODY"
-            echo "IBE_PROPERTY_1: $IBE_PROPERTY_1"
-            echo "IBE_PROPERTY_2: $IBE_PROPERTY_2"
+            echo "Database-Name: $Database-Name"
+            echo "Application-Name: $Application-Name"
           else
             echo "PR body is empty."
           fi
