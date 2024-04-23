@@ -13,12 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 
 
-    - name: Check for custom text
+    - name: Check PR body
       run: |
         PR_BODY="${{ github.event.pull_request.body }}"
-        if [[ "$PR_BODY" == *"your custom text"* ]]; then
-          echo "Custom text is present: $PR_BODY"
+        if [[ "$PR_BODY" == "true" ]]; then
+          echo "PR body is 'true'. Proceeding with the workflow."
         else
-          echo "Custom text is not present in PR body. Failing the workflow."
+          echo "PR body is not 'true'. Failing the workflow."
           exit 1
         fi
