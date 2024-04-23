@@ -4,10 +4,6 @@ on:
   pull_request:
     types: [closed]
     
-env:
-  Database-Name: value1
-  Application-Name: value2
-
 jobs:
   check:
     runs-on: ubuntu-latest
