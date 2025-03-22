@@ -1,4 +1,4 @@
-### Day-1 | Basics of Cloud Computing | Fundamentals of Azure
+### <ins> Day-1 | Basics of Cloud Computing | Fundamentals of Azure </ins>
 
 * Data Center -->  It is the collection of servers
 * Server --> It is a computer system which has CPU and RAM required to run the applications and processes.
