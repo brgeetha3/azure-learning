@@ -20,3 +20,14 @@
   having a backup
 * Load Balancing --> is to split the load between data centers
 
+### <ins> Day-2 | Getting Started With Azure </ins>
+* IAAS - Infrastructure as Service eg - VM, storage, networking, Load balancer - you will take the complete infrastructure and install the required components/software in it. Eg --> companies will take VM, Storage, Networking on top of it you will install SQL database and configure it by your own. So you are only picking up only VM, Storage, Networking.
+* PAAS - Platform as service eg - companies will pick up the complete platform like database, SQL, app service - you will configure it and use it
+	 Eg --> Directly using SQL service not to procure VM, Storage, Networking
+* SAAS - Software as Service 
+         Eg --> you will directly get the infrastructure, platform and also get the service, not to configure anything. Best example is - outlook you will 
+                pay the subscription and start using. 
+* why datacenters are located in different regions because is to avoid latency and downtime. Each data center is availability zone. 
+
+
+
