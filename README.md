@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/5fe9b683-c780-457d-9e5a-d8a57434244c)### <ins> Day-1 | Basics of Cloud Computing | Fundamentals of Azure </ins>
+### <ins> Day-1 | Basics of Cloud Computing | Fundamentals of Azure </ins>
 
 * Data Center -->  It is the collection of servers
 * Server --> It is a computer system which has CPU and RAM required to run the applications and processes.
@@ -29,7 +29,7 @@
                 pay the subscription and start using. 
 * why datacenters are located in different regions because is to avoid latency and downtime. Each data center is availability zone. 
 
-## <ins> Day-3 | Resource, Resource Groups and Azure Resource Manager | Demo and Use cases </ins>
+### <ins> Day-3 | Resource, Resource Groups and Azure Resource Manager | Demo and Use cases </ins>
 ![image](https://github.com/user-attachments/assets/b63afed7-cc62-4441-ab7c-aec09c1494b3)
 * Service --> what we have in azure is called services and what we create using this services is called as resources.
 * To Create Virtual Machine, we fill all the properties and click on create button, after that request goes to Azure resource manager and it will 
