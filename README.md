@@ -1,4 +1,4 @@
-### <ins> Day-1 | Basics of Cloud Computing | Fundamentals of Azure </ins>
+![image](https://github.com/user-attachments/assets/5fe9b683-c780-457d-9e5a-d8a57434244c)### <ins> Day-1 | Basics of Cloud Computing | Fundamentals of Azure </ins>
 
 * Data Center -->  It is the collection of servers
 * Server --> It is a computer system which has CPU and RAM required to run the applications and processes.
@@ -28,6 +28,21 @@
          Eg --> you will directly get the infrastructure, platform and also get the service, not to configure anything. Best example is - outlook you will 
                 pay the subscription and start using. 
 * why datacenters are located in different regions because is to avoid latency and downtime. Each data center is availability zone. 
+
+## <ins> Day-3 | Resource, Resource Groups and Azure Resource Manager | Demo and Use cases </ins>
+![image](https://github.com/user-attachments/assets/b63afed7-cc62-4441-ab7c-aec09c1494b3)
+* Service --> what we have in azure is called services and what we create using this services is called as resources.
+* To Create Virtual Machine, we fill all the properties and click on create button, after that request goes to Azure resource manager and it will 
+  receive the request and create the Virtual Machine resource. Resource is the outcome of the service.
+* In any of these way UI, CLI, API the request goes to azure resource manager only. 
+* Resource Group --> it is mandatory, without this we cannot create the resources. It means grouping of resources. It is combination of the 
+  resources like VM+DB+App resources. Why should combine --> if we group resources, we can easily to track. E.g.. if we have multiple projects, it 
+  will be easily track the project and its resources, that will also allow you to manager the Access, permission, security, auditing, cost 
+  monitoring etc.
+* when the virtual machine is created --> parallelly it will create public Ip address, network security group, virtual network, SSH Key, Virtual 
+  network, Network Interface, Disk.
+* The resource and the resource group is always one to one map.
+
 
 
 
